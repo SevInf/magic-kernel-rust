@@ -1,7 +1,7 @@
 # Magic Kernel for Rust
 
-![Crates.io Version](https://img.shields.io/crates/v/magic-kernel)
-![docs.rs](https://img.shields.io/docsrs/magic-kernel)
+[![Crates.io Version](https://img.shields.io/crates/v/magic-kernel)](https://crates.io/crates/magic-kernel)
+[![docs.rs](https://img.shields.io/docsrs/magic-kernel)](https://docs.rs/magic-kernel/latest/magic_kernel/)
 
 
 

@@ -1,5 +1,10 @@
 # Magic Kernel for Rust
 
+![Crates.io Version](https://img.shields.io/crates/v/magic-kernel)
+![docs.rs](https://img.shields.io/docsrs/magic-kernel)
+
+
+
 Implementation of [Magic Kernel](https://johncostella.com/magic/) family of resizing algorithms.
 
 Usage:

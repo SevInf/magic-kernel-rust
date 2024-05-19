@@ -1,6 +1,10 @@
 [package]
+categories = ["multimedia::images"]
 edition = "2021"
+keywords = ["image", "resize", "magic kernel", "magic kernel sharp"]
+license = "MIT"
 name = "magic-kernel"
+repository = "https://github.com/SevInf/magic-kernel-rust"
 version = "0.1.0"
 
 [dev-dependencies]

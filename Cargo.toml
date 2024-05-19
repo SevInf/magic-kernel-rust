@@ -7,5 +7,7 @@ name = "magic-kernel"
 repository = "https://github.com/SevInf/magic-kernel-rust"
 version = "0.1.0"
 
+exclude = ["example.jpg", "target"]
+
 [dev-dependencies]
 image = {version = "^0.25.1"}

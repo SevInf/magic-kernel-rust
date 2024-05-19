@@ -1,5 +1,6 @@
 [package]
 categories = ["multimedia::images"]
+description = "Implementation of Magic Kernel family of resizing algorithms."
 edition = "2021"
 keywords = ["image", "resize", "magic kernel", "magic kernel sharp"]
 license = "MIT"

@@ -17,7 +17,6 @@ impl Kernel1D {
         let weights_map: Vec<_> = (0..number_out)
             .map(|out| {
                 let (first, last) = D::bounds(out, scale_factor);
-                let first = first.max(0);
 
                 let last = last.min(number_in - 1);
 

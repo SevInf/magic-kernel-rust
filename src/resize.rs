@@ -62,15 +62,35 @@ pub fn magic_resize(
 
     let size = (image.width(), image.height());
 
-    let out = Kernel2D::new::<MagicKernel>(size, new_size).apply(image);
-    if version == Version::MagicKernel {
-        return out;
+    if new_size.0 >= size.0 {
+        match version {
+            Version::MagicKernel => {
+                Kernel2D::new::<MagicKernel>(size, new_size).apply(image)
+            }
+            Version::MagicKernelSharp2013 => {
+                let img = Kernel2D::new::<Sharp2013>(size, size).apply(image);
+                Kernel2D::new::<MagicKernel>(size, new_size).apply(&img)
+            }
+            Version::MagicKernelSharp2021 => {
+                let img = Kernel2D::new::<Sharp2013>(size, size).apply(image);
+                let img = Kernel2D::new::<Sharp2021>(size, size).apply(&img);
+                Kernel2D::new::<MagicKernel>(size, new_size).apply(&img)
+            }
+        }
+    } else {
+        match version {
+            Version::MagicKernel => {
+                Kernel2D::new::<MagicKernel>(size, new_size).apply(image)
+            }
+            Version::MagicKernelSharp2013 => {
+                let img = Kernel2D::new::<MagicKernel>(size, new_size).apply(image);
+                Kernel2D::new::<Sharp2013>(new_size, new_size).apply(&img)
+            }
+            Version::MagicKernelSharp2021 => {
+                let img = Kernel2D::new::<MagicKernel>(size, new_size).apply(image);
+                let img = Kernel2D::new::<Sharp2013>(new_size, new_size).apply(&img);
+                Kernel2D::new::<Sharp2021>(new_size, new_size).apply(&img)
+            }
+        }
     }
-    let out = Kernel2D::new::<Sharp2013>(new_size, new_size).apply(&out);
-    if version == Version::MagicKernelSharp2013 {
-        return out;
-    }
-
-    // Sharp 2021 version
-    Kernel2D::new::<Sharp2021>(new_size, new_size).apply(&out)
 }
